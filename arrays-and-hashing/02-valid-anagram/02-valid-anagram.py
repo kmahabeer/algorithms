@@ -1,23 +1,11 @@
 class Solution:
     def isAnagram(self, s: str, t: str) -> bool:
-        if len(s) == 1 and len(t) == 1 and s == t:
-            return True
-        letterSet1 = {}
-        letterSet2 = {}
-
-        for i in s:
-            if i not in letterSet1.keys():
-                letterSet1[i] = 1
-            else:
-                letterSet1[i] += 1
-
-        for j in t:
-            if j not in letterSet2.keys():
-                letterSet2[j] = 1
-            else:
-                letterSet2[j] += 1
-
-        return letterSet1 == letterSet2
+        if len(s) != len(t):
+            return False
+        for char in set(s):
+            if s.count(char) != t.count(char):
+                return False
+        return True
 
 
 s1 = Solution()
