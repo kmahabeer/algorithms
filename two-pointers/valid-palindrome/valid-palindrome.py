@@ -1,25 +1,15 @@
-class Solution:
-    def isPalindrome(self, s: str) -> bool:
-        newS = ""
-        for ch in s:
-            if ch.isalnum():
-                newS = (newS + ch).lower()
-            else:
-                continue
+import re
 
-        if len(newS) == 0 or len(newS) == 1:
+
+class Solution:
+
+    def isPalindrome(self, s: str) -> bool:
+        s = re.sub(r'[\W_]+', '', s)
+        s = s.lower()
+        if s == s[::-1]:
             return True
-        i = 0
-        j = len(newS) - 1
-        while i <= j:
-            if (i == j or j == i+1) and newS[i] == newS[j]:
-                return True
-            elif newS[i] == newS[j]:
-                pass
-            else:
-                return False
-            i += 1
-            j -= 1
+        else:
+            return False
 
 
 s1 = Solution()
