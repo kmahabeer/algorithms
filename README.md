@@ -6,7 +6,7 @@ This repository showcases my daily practice of problem-solving and improving my 
 
 ### Contributions
 
-While this repository primarily showcases my personal practice, I welcome contributions, suggestions, and discussions from the programming community. If you have any feedback or improvements, please feel free to open an issue or submit a pull request.
+While this repository primarily showcases my personal practice, if you have any feedback, please feel free to open an issue.
 
 ### Get in Touch
 
