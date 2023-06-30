@@ -1,0 +1,17 @@
+cmake_minimum_required(VERSION 3.0.0)
+project(two-sum-cpp VERSION 0.1.0 LANGUAGES C CXX)
+
+include(CTest)
+enable_testing()
+
+add_executable(two-sum-cpp main.cpp)
+
+if (CMAKE_CXX_COMPILER_ID MATCHES "GNU|Clang")
+    target_compile_options(two-sum-cpp PRIVATE -Wall -Wextra -Wpedantic)
+elseif (MSVC)
+    target_compile_options(two-sum-cpp PRIVATE /W4 /WX)
+endif()
+
+set(CPACK_PROJECT_NAME ${PROJECT_NAME})
+set(CPACK_PROJECT_VERSION ${PROJECT_VERSION})
+include(CPack)
