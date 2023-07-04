@@ -2,7 +2,7 @@
 
 ### Overview
 
-This repository showcases my daily practice of problem-solving and improving my skills in various programming languages. I attempt to solve coding challenges each day, using Python, C/C++, or JavaScript to enhance my problem-solving abilities. This daily practice helps me develop problem-solving patterns that can be applied to other programming challenges, such as MATLAB development, and embedded programming.
+This repository showcases my goal of improving my problem-solving skills in various programming languages. I attempt to solve coding challenges each day, using Python and C/C++, and occassionally JavaScript. This daily practice helps me develop problem-solving patterns that can be applied to other programming challenges, such as MATLAB development, and embedded programming.
 
 ### Contributions
 
