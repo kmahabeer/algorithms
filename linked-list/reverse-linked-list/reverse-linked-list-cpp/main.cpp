@@ -12,6 +12,43 @@ struct ListNode {
   ListNode(int x, ListNode* next) : val(x), next(next) {}
 };
 
+// Function to create singly linked list from a vector of integers
+ListNode* createLinkedList(const vector<int>& elements) {
+  ListNode* head = nullptr;
+  ListNode* tail = nullptr;
+  for (int element : elements) {
+    ListNode* newNode = new ListNode(element);
+    if (!head) {
+      head = newNode;
+      tail = newNode;
+    } else {
+      tail->next = newNode;
+      tail = newNode;
+    }
+  }
+  return head;
+}
+
+// Function to print out the linked list
+void printLinkedList(ListNode* head) {
+  ListNode* current{head};
+  while (current != nullptr) {
+    cout << current->val << " ";
+    current = current->next;
+  }
+  cout << endl;
+}
+
+// Function to delete the linked list and free memory
+void deleteLinkedList(ListNode* head) {
+  while (head != nullptr) {
+    ListNode* temp = head;
+    head = head->next;
+    temp->next = nullptr;
+    delete temp;
+  }
+}
+
 class Solution {
  public:
   ListNode* reverseList(ListNode* head) {
@@ -22,36 +59,12 @@ class Solution {
 };
 
 int main() {
-  // Create the nodes
-  ListNode* node1 = new ListNode(1);
-  ListNode* node2 = new ListNode(2);
-  ListNode* node3 = new ListNode(3);
-  ListNode* node4 = new ListNode(4);
-  ListNode* node5 = new ListNode(5);
+  vector<int> list1 = {1, 2, 3, 4, 5};
+  ListNode* head{createLinkedList(list1)};
 
-  // Connect the nodes to form a linked list
-  node1->next = node2;
-  node2->next = node3;
-  node3->next = node4;
-  node4->next = node5;
+  printLinkedList(head);
 
-  // Set the head of the linked list
-  ListNode* head = node1;
-
-  // Traverse and print out the linked list
-  ListNode* current = head;
-  while (current != nullptr) {
-    cout << current->val << " ";
-    current = current->next;
-  }
-
-  // Clean up memory
-  current = head;
-  while (current != nullptr) {
-    ListNode* temp = current;
-    current = current->next;
-    delete temp;
-  }
+  deleteLinkedList(head);
 
   return 0;
 }
