@@ -52,19 +52,39 @@ void deleteLinkedList(ListNode* head) {
 class Solution {
  public:
   ListNode* reverseList(ListNode* head) {
-    ListNode *nextNode, *prevNode = nullptr;
-
+    ListNode* nextNode = nullptr;
+    ListNode* prevNode = nullptr;
+    while (head) {
+      nextNode = head->next;
+      head->next = prevNode;
+      prevNode = head;
+      head = nextNode;
+    }
     return prevNode;
   };
 };
 
 int main() {
-  vector<int> list1 = {1, 2, 3, 4, 5};
-  ListNode* head{createLinkedList(list1)};
+  vector<int> list1{1, 2, 3, 4, 5};
+  ListNode* head1{createLinkedList(list1)};
+  printLinkedList(head1);
+  ListNode* result1{Solution().reverseList(head1)};
+  printLinkedList(result1);
+  deleteLinkedList(head1);
 
-  printLinkedList(head);
+  vector<int> list2{1, 2};
+  ListNode* head2{createLinkedList(list2)};
+  printLinkedList(head2);
+  ListNode* result2{Solution().reverseList(head2)};
+  printLinkedList(result2);
+  deleteLinkedList(head2);
 
-  deleteLinkedList(head);
+  vector<int> list3{};
+  ListNode* head3{createLinkedList(list3)};
+  printLinkedList(head3);
+  ListNode* result3{Solution().reverseList(head3)};
+  printLinkedList(result3);
+  deleteLinkedList(head3);
 
   return 0;
 }
