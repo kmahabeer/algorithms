@@ -12,6 +12,10 @@ struct TreeNode {
       : val(x), left(left), right(right) {}
 };
 
+std::ostream &operator<<(std::ostream &os, const TreeNode &node) {
+  return os << node.val << std::endl;
+}
+
 // Recursive function to create binary tree.
 TreeNode *createBinaryTree(const std::vector<int> &elements, int index = 0) {
   if (index >= elements.size() || elements[index] == -1) {
@@ -71,9 +75,16 @@ class Solution {
 int main() {
   std::vector<int> list1{4, 2, 7, 1, 3, 6, 9};
   TreeNode *root1{createBinaryTree(list1)};
-  printBinaryTree(root1);
+  std::cout << "\nInput: " << std::endl;
+  for (auto &&i : list1) {
+    std::cout << i << " ";
+  }
   TreeNode *result1{Solution().invertTree(root1)};
-  printBinaryTree(result1);
+  std::cout << "\nOutput: " << std::endl;
+  std::cout << *result1 << *result1->left << *result1->right
+            << *result1->left->left << *result1->left->right
+            << *result1->right->left << *result1->right->right << "\n"
+            << std::endl;
 
   return 0;
 }
